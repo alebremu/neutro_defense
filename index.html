@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neutrophil Defense</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    #level-nav{display:flex;gap:8px;margin-bottom:10px}
+    .lnav{border:0.5px solid #ccc;border-radius:8px;padding:5px 14px;font-size:12px;text-decoration:none;color:#333;background:#fff}
+    .lnav.active{border-color:#1D9E75;background:#E1F5EE;color:#0F6E56;font-weight:500}
+    .lnav:hover{background:#f5f5f3}
+  </style>
 </head>
 <body>
-  <div id="wrap">
+<div id="wrap">
+  <div id="level-nav">
+    <a class="lnav active" href="/">Level 1 — Phagocytosis</a>
+    <a class="lnav" href="/level2">Level 2 — Degranulation</a>
+    <a class="lnav" href="/level3">Level 3 — NETosis</a>
+  </div>
     <div id="hud">
       <div class="pill">⚡ <span id="e-val">60</span> ATP</div>
       <div class="pill">🦠 Wave <span id="w-val">1</span>/4</div>
