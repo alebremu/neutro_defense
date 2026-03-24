@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neutrophil Defense</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    #level-nav{display:flex;gap:8px;margin-bottom:10px}
+    .lnav{border:0.5px solid #ccc;border-radius:8px;padding:5px 14px;font-size:12px;text-decoration:none;color:#333;background:#fff}
+    .lnav.active{border-color:#1D9E75;background:#E1F5EE;color:#0F6E56;font-weight:500}
+    .lnav:hover{background:#f5f5f3}
+  </style>
+</head>
+<body>
+<div id="wrap">
+  <div id="level-nav">
+    <a class="lnav active" href="/">Level 1 — Phagocytosis</a>
+    <a class="lnav" href="/level2">Level 2 — Degranulation</a>
+    <a class="lnav" href="/level3">Level 3 — NETosis</a>
+  </div>
+    <div id="hud">
+      <div class="pill">⚡ <span id="e-val">60</span> ATP</div>
+      <div class="pill">🦠 Wave <span id="w-val">1</span>/4</div>
+      <div class="pill">💀 Escaped <span id="esc-val">0</span></div>
+      <div id="tissue-wrap">
+        <div class="bar-label">Tissue health</div>
+        <div class="bar-bg"><div class="bar-fill" id="t-fill" style="width:100%"></div></div>
+      </div>
+    </div>
+
+    <div id="cv-wrap">
+      <canvas id="gc" height="360"></canvas>
+      <div id="msg"></div>
+      <div id="tip"><b id="tip-title"></b><span id="tip-body"></span></div>
+      <div id="ov">
+        <h2>Neutrophil Defense</h2>
+        <p>
+          Place neutrophils <strong>inside the blood vessel</strong>.
+          Each holds <strong>2 bacteria max</strong> before digesting.
+          ATP is scarce — spend wisely and let digestion refund you!
+        </p>
+        <button id="start-btn">Start Level 1</button>
+      </div>
+    </div>
+
+    <div id="panel">
+      <div class="tbtn sel">
+        <div class="ico neutrophil-ico">🔵</div>
+        <div>
+          <div class="nm">Neutrophil</div>
+          <div class="ct">26 ATP · phagocytosis · max 2</div>
+        </div>
+      </div>
+      <div class="tbtn locked">
+        <div class="ico degran-ico">🟡</div>
+        <div>
+          <div class="nm">Degranulator</div>
+          <div class="ct">Unlocks level 2</div>
+        </div>
+      </div>
+      <div class="tbtn locked">
+        <div class="ico net-ico">🕸️</div>
+        <div>
+          <div class="nm">NET launcher</div>
+          <div class="ct">Unlocks level 3</div>
+        </div>
+      </div>
+      <div class="hint">Click <strong>inside the vessel</strong> to place</div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/constants.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/entities.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/draw.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
